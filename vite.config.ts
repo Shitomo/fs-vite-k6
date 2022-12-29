@@ -1,5 +1,6 @@
 import { defineConfig } from 'vite'
 import path from 'path'
+import babel from 'vite-plugin-babel';
 
 export default defineConfig({
   build: {
@@ -11,5 +12,8 @@ export default defineConfig({
     rollupOptions: {
       external: ['k6', /^k6\/.*/]
     },
-  }
+  },
+  plugins: [
+    babel(),
+],
 })
