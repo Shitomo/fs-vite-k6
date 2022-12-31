@@ -14,6 +14,21 @@ export default defineConfig({
     },
   },
   plugins: [
-    babel(),
-],
+    babel({
+      babelConfig: {
+          babelrc: false,
+          configFile: false,
+          filter: [/\.ts?$/],
+          presets: [
+            [
+              "@babel/typescript"
+            ]
+          ],
+          plugins: [
+            '@babel/proposal-class-properties',
+            '@babel/proposal-object-rest-spread',
+          ],
+      }
+  }),
+  ],
 })

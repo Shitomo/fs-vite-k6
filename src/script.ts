@@ -1,5 +1,6 @@
 import http from 'k6/http';
 import { sleep } from 'k6';
+import { sample } from '../lib/sample';
 
 export const options = {
   vus: 10,
@@ -8,6 +9,7 @@ export const options = {
 
 export default function () {
   const response = http.get('http://test.k6.io');
-  console.log(response)
+  sample();
+  console.log(response.status)
   sleep(1);
 }
